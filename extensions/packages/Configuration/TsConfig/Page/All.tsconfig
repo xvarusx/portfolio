@@ -1,0 +1,7 @@
+#
+# PageTS for packages
+#
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:packages/Configuration/TsConfig/Page/RTE.tsconfig">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:packages/Configuration/TsConfig/Page/TCEFORM.tsconfig">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:packages/Configuration/TsConfig/Page/TCEMAIN.tsconfig">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:packages/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts.tsconfig">

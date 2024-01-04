@@ -1,0 +1,264 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript">
+
+
+################
+#### HELPER ####
+################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:packages/Configuration/TypoScript/Helper/DynamicContent.typoscript">
+
+##################
+#### Language ####
+##################
+
+lib.language = COA
+lib.language {
+    20 = HMENU
+    20 {
+        special = language
+        special.value = 0,1,2
+        special.normalWhenNoLanguage = 0
+        wrap = <select id="language_menu" class="language-menu" onchange="location = this.value;">|</select>
+        1 = TMENU
+        1 {
+            noBlur = 1
+            NO = 1
+            NO {
+                doNotLinkIt = 1
+                stdWrap.override = EN || FR || DE
+                stdWrap.typolink {
+                    parameter.data = page:uid
+                    additionalParams = &L=0 || &L=1 || &L=2
+                    ATagParams = hreflang="en-GB" ||  hreflang="fr-FR" ||  hreflang="de-DE"
+                    addQueryString = 1
+                    addQueryString.exclude = L,id,no_cache
+                    addQueryString.method = GET
+                    no_cache = 0
+                    wrap = <option value="{linkUrl}">{text}</option>
+                }
+            }
+            ACT < .NO
+            ACT.wrapItemAndSub = <option value="{linkUrl}" selected="selected">|</option>
+            USERDEF1 < .NO
+            USERDEF1 {
+                wrap = <option value="{linkUrl}" disabled="disabled">{text}</option>
+                stdWrap.typolink >
+            }
+            USERDEF2 < .ACT
+            USERDEF2.wrapItemAndSub = <option value="{linkUrl}" disabled="disabled">|</option>
+            USERDEF2.stdWrap.typolink >
+        }
+    }
+}
+
+##############
+#### PAGE ####
+##############
+page = PAGE
+page {
+    typeNum = 0
+    shortcutIcon = EXT:packages/Resources/Public/Icons/favicon.ico
+
+    10 = FLUIDTEMPLATE
+    10 {
+        # Template names will be generated automatically by converting the applied
+        # backend_layout, there is no explicit mapping necessary anymore.
+        #
+        # BackendLayout Key
+        # subnavigation_right_2_columns -> SubnavigationRight2Columns.html
+        #
+        # Backend Record
+        # uid: 1 -> 1.html
+        #
+        # Database Entry
+        # value: -1 -> None.html
+        # value: pagets__subnavigation_right_2_columns -> SubnavigationRight2Columns.html
+        templateName = TEXT
+        templateName {
+            cObject = TEXT
+            cObject {
+                data = pagelayout
+                required = 1
+                case = uppercamelcase
+                split {
+                    token = pagets__
+                    cObjNum = 1
+                    1.current = 1
+                }
+            }
+            ifEmpty = Default
+        }
+        templateRootPaths {
+            0 = EXT:packages/Resources/Private/Templates/Page/
+            1 = {$page.fluidtemplate.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:packages/Resources/Private/Partials/Page/
+            1 = {$page.fluidtemplate.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:packages/Resources/Private/Layouts/Page/
+            1 = {$page.fluidtemplate.layoutRootPath}
+        }
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references.fieldName = media
+            }
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 {
+                levels = 2
+                includeSpacer = 1
+                as = mainnavigation
+            }
+        }
+    }
+
+    meta {
+        viewport = {$page.meta.viewport}
+        robots = {$page.meta.robots}
+        apple-mobile-web-app-capable = {$page.meta.apple-mobile-web-app-capable}
+        description = {$page.meta.description}
+        description {
+            override.field = description
+        }
+        author = {$page.meta.author}
+        author {
+            override.field = author
+        }
+        keywords = {$page.meta.keywords}
+        keywords {
+            override.field = keywords
+        }
+        X-UA-Compatible = {$page.meta.compatible}
+        X-UA-Compatible {
+            attribute = http-equiv
+        }
+
+        # OpenGraph Tags
+        og:title {
+            attribute = property
+            field = title
+        }
+        og:site_name {
+            attribute = property
+            data = TSFE:tmpl|setup|sitetitle
+        }
+        og:description = {$page.meta.description}
+        og:description {
+            attribute = property
+            field = description
+        }
+        og:image {
+            attribute = property
+            stdWrap.cObject = FILES
+            stdWrap.cObject {
+                references {
+                    data = levelfield:-1, media, slide
+                }
+                maxItems = 1
+                renderObj = COA
+                renderObj {
+                    10 = IMG_RESOURCE
+                    10 {
+                        file {
+                            import.data = file:current:uid
+                            treatIdAsReference = 1
+                            width = 1280c
+                            height = 720c
+                        }
+                        stdWrap {
+                            typolink {
+                                parameter.data = TSFE:lastImgResourceInfo|3
+                                returnLast = url
+                                forceAbsoluteUrl = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    includeCSSLibs {
+        googlefonts = https://fonts.googleapis.com/css?family=Roboto:400,500|Rubik:500,700
+        googlefonts.externel = 1
+        bootstrap = EXT:packages/Resources/Public/Css/bootstrap.css
+        icons = EXT:packages/Resources/Public/Vendor/linericon/style.css  
+        fonts = EXT:packages/Resources/Public/Css/font-awesome.min.css
+        niceSelect = EXT:packages/Resources/Public/Vendor/nice-select/css/nice-select.css
+
+    }
+
+    includeCSS {
+        myportfolio_layout = EXT:packages/Resources/Public/Css/style.css
+    }
+
+    includeJSLibs {
+
+    }
+
+    includeJS {
+
+    }
+
+    includeJSFooterlibs {
+        jquery = EXT:packages/Resources/Public/JavaScript/Dist/jquery-3.2.1.min.js
+        popper = EXT:packages/Resources/Public/JavaScript/Dist/popper.js
+        bootstrap = EXT:packages/Resources/Public/JavaScript/Dist/bootstrap.min.js
+        stellar = EXT:packages/Resources/Public/JavaScript/Dist/stellar.js
+        jquery-magnific-popup= EXT:packages/Resources/Public/JavaScript/Dist/jquery.magnific-popup.min.js
+        niceSelectmin = EXT:packages/Resources/Public/Vendor/nice-select/js/jquery.nice-select.min.js
+        imagesloaded = EXT:packages/Resources/Public/Vendor/isotope/imagesloaded.pkgd.min.js
+        isotype = EXT:packages/Resources/Public/Vendor/isotope/isotope-min.js
+        carousel = EXT:packages/Resources/Public/Vendor/owl-carousel/owl.carousel.min.css
+        jquery-ajaxchimp = EXT:packages/Resources/Public/JavaScript/Dist/jquery.ajaxchimp.min.js
+        contact = EXT:packages/Resources/Public/JavaScript/Dist/mail-script.js
+        gmaps = EXT:packages/Resources/Public/JavaScript/Dist/gmaps.min.js
+        theme = EXT:packages/Resources/Public/JavaScript/Dist/theme.js
+    }
+
+    includeJSFooter {
+        packages_scripts = EXT:packages/Resources/Public/JavaScript/Dist/scripts.js
+    }
+}
+
+
+################
+#### CONFIG ####
+################
+config {
+    absRefPrefix = auto
+    no_cache = {$config.no_cache}
+    uniqueLinkVars = 1
+    pageTitleFirst = 1
+    linkVars = L
+    prefixLocalAnchors = {$config.prefixLocalAnchors}
+    renderCharset = utf-8
+    metaCharset = utf-8
+    doctype = html5
+    removeDefaultJS = {$config.removeDefaultJS}
+    inlineStyle2TempFile = 1
+    admPanel = {$config.admPanel}
+    debug = 0
+    cache_period = 86400
+    sendCacheHeaders = {$config.sendCacheHeaders}
+    intTarget =
+    extTarget =
+    disablePrefixComment = 1
+    index_enable = 1
+    index_externals = 1
+    index_metatags = 1
+    headerComment = {$config.headerComment}
+
+    // Disable Image Upscaling
+    noScaleUp = 1
+
+    // Compression and Concatenation of CSS and JS Files
+    compressJs = 0
+    compressCss = 0
+    concatenateJs = 0
+    concatenateCss = 0
+}
