@@ -1,3 +1,4 @@
+
 <header class="header_area">
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -33,7 +34,13 @@
                         </f:for>
                         <li class="nav-item">
                             <div class="languge-items">
-                                <f:cObject typoscriptObjectPath="lib.languageMenu" />
+                                <div class="nice-select language-menu" tabindex="0">
+                                    <span class="current">{lang}</span>
+                                    <ul class="list">
+                                        <f:cObject typoscriptObjectPath="lib.langMenu" data="{lang: '{TSFE:sys_language_uid}'}" />
+                                    </ul>
+                                </div>
+                                </div>
                             </div>
                         </li>
                     </ul>

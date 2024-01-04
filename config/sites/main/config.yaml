@@ -1,4 +1,6 @@
 base: /
+flux_content_types: ''
+flux_page_templates: ''
 languages:
   -
     title: English
@@ -12,5 +14,35 @@ languages:
     hreflang: en-us
     direction: ltr
     flag: us
+  -
+    title: German
+    enabled: true
+    base: /de/
+    typo3Language: de
+    locale: de_DE
+    iso-639-1: de
+    websiteTitle: ''
+    navigationTitle: German
+    hreflang: de
+    direction: ''
+    fallbackType: strict
+    fallbacks: ''
+    flag: de
+    languageId: 1
+  -
+    title: Français
+    enabled: true
+    base: /fr/
+    typo3Language: fr
+    locale: fr_FR
+    iso-639-1: fr
+    websiteTitle: ''
+    navigationTitle: Français
+    hreflang: fr
+    direction: ''
+    fallbackType: strict
+    fallbacks: ''
+    flag: fr
+    languageId: 2
 rootPageId: 1
 websiteTitle: ''
