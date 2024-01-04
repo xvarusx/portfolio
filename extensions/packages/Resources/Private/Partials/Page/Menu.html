@@ -1,0 +1,44 @@
+<header class="header_area">
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- <a class="navbar-brand logo_h" href="{mainnavigation.0.link}"><img src="{logo}" title="{mainnavigation.0.title}" alt="{mainnavigation.0.title}"></a> -->
+                <div class="text-logo">
+                    <a href="{mainnavigation.0.link}">
+                        <div class="logo-symbol">O</div>
+                        <div class="logo-text">Oussema <span>Harrabi</span></div>
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav justify-content-end">
+                        <f:for each="{mainnavigation}" as="mainnavigationItem">
+                            <li class="nav-item {f:if(condition: mainnavigationItem.active, then:'active')}"><a class="nav-link" href="{mainnavigationItem.link}">{mainnavigationItem.title}</a></li>
+                            <f:if condition="{mainnavigationItem.children}">
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
+                                    <ul class="dropdown-menu">
+                                        <f:for each="{mainnavigationItem.children}" as="child">
+                                            <li class="nav-item {f:if(condition: child.active, then:'active')}"><a class="nav-link" href="{child.link} target="{child.target}" title="{child.title}">{child.title}</a></li>
+                                        </f:for>
+                                    </ul>
+                                </li>
+                            </f:if>
+                        </f:for>
+                        <li class="nav-item">
+                            <div class="languge-items">
+                                <f:cObject typoscriptObjectPath="lib.languageMenu" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
