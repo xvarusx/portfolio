@@ -14,12 +14,13 @@ languages:
     hreflang: en-us
     direction: ltr
     flag: us
+    websiteTitle: ''
   -
     title: German
     enabled: true
     base: /de/
     typo3Language: de
-    locale: de_DE
+    locale: de_DE.UTF8
     iso-639-1: de
     websiteTitle: ''
     navigationTitle: German
@@ -34,7 +35,7 @@ languages:
     enabled: true
     base: /fr/
     typo3Language: fr
-    locale: fr_FR
+    locale: fr_FR.UTF8
     iso-639-1: fr
     websiteTitle: ''
     navigationTitle: Français

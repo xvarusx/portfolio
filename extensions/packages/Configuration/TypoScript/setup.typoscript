@@ -12,6 +12,7 @@
 ##################
 #### Language ####
 ##################
+
 lib.langMenu = HMENU
 lib.langMenu {
     special = language
@@ -45,6 +46,10 @@ lib.langMenu {
 
     }
 }
+
+lib.langVar = TEXT
+lib.langVar.value = {siteLanguage("languageId") == 0 ? "EN" : (siteLanguage("languageId") == 1 ? "DE" : "FR")}
+
 
 ##############
 #### PAGE ####
