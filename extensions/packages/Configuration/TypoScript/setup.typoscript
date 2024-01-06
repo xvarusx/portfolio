@@ -21,7 +21,7 @@ lib.langMenu {
     1 {
         NO = 1
         NO {
-            linkWrap = <li>|</li>
+            linkWrap = <li class="nav-item">|</li>
             doNotLinkIt = 1
             stdWrap.override = en || de || fr
             stdWrap.typolink {
@@ -29,7 +29,7 @@ lib.langMenu {
                 additionalParams = &L=0 || &L=1 || &L=2
                 addQueryString = 1
                 addQueryString.exclude = L,id
-
+                ATagParams = class="nav-link"
             }
         }
         // We are in the current language
