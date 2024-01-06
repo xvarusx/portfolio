@@ -1,0 +1,47 @@
+# Home page backend layout config 
+mod.web_layout.BackendLayouts {
+  HomePageLayout {
+    title = HomePage
+    icon = EXT:example_extension/Resources/Public/Images/BackendLayouts/default.gif
+    config {
+      backend_layout {
+        colCount = 1
+        rowCount = 4
+        rows {
+          1 {
+            columns {
+              1 {
+                name = aboutSection
+                colPos = 0
+              }
+            }
+          }
+          2 {
+            columns {
+              1 {
+                name = ServicesSection
+                colPos = 1
+              }
+            }
+          }
+          3 {
+            columns {
+              1 {
+                name = WorksSection
+                colPos = 2
+              }
+            }
+          }
+          4 {
+            columns {
+              1 {
+                name = ContactSection
+                colPos = 3
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
