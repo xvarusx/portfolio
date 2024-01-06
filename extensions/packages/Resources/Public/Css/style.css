@@ -2539,7 +2539,10 @@ h6 {
           height: auto; } }
     @media (max-width: 991px) {
       .about_area .about_img {
-        display: none; } }
+        display: block; } 
+      .hp-text-block{
+          padding: 30px 0px;
+      }}
 
 /* End About Us Area css
 ============================================================================================ */

@@ -191,7 +191,7 @@ page {
         icons = EXT:packages/Resources/Public/Vendor/linericon/style.css  
         fonts = EXT:packages/Resources/Public/Css/font-awesome.min.css
         niceSelect = EXT:packages/Resources/Public/Vendor/nice-select/css/nice-select.css
-
+        owl = EXT:packages/Resources/Public/Vendor/owl-carousel/owl.carousel.min.css
     }
 
     includeCSS {
@@ -215,11 +215,14 @@ page {
         niceSelectmin = EXT:packages/Resources/Public/Vendor/nice-select/js/jquery.nice-select.min.js
         imagesloaded = EXT:packages/Resources/Public/Vendor/isotope/imagesloaded.pkgd.min.js
         isotype = EXT:packages/Resources/Public/Vendor/isotope/isotope-min.js
-        carousel = EXT:packages/Resources/Public/Vendor/owl-carousel/owl.carousel.min.css
+        #carousel = EXT:packages/Resources/Public/Vendor/owl-carousel/owl.carousel.min.css
         jquery-ajaxchimp = EXT:packages/Resources/Public/JavaScript/Dist/jquery.ajaxchimp.min.js
         contact = EXT:packages/Resources/Public/JavaScript/Dist/mail-script.js
         gmaps = EXT:packages/Resources/Public/JavaScript/Dist/gmaps.min.js
         theme = EXT:packages/Resources/Public/JavaScript/Dist/theme.js
+        zipto = https://zeptojs.com/zepto.min.js
+        zipto.external = 1
+        owl = EXT:packages/Resources/Public/Vendor/owl-carousel/owl.carousel.min.js
     }
 
     includeJSFooter {

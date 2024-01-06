@@ -7,7 +7,7 @@
     <flux:form id="aboutMe" label="aboutMe" description="aboutMe">
         <flux:field.input label="Header"name="header-location" maxCharacters="255" />
         <flux:field.input label="SubHeader"name="Sub-header-location" maxCharacters="255" />
-        <flux:field.text label="Description"enableRichText="true" name="header-title" rows="5" cols="40" />
+        <flux:field.text label="Description"enableRichText="true" name="header-description" rows="5" cols="40" />
         <flux:field.inline.fal label="Profile Picture"name="image" required="1" maxItems="1" minItems="1"/>
         <flux:field type="input" name="link"label="download-Cv-Link"config="{renderType: 'inputLink'}" />
     </flux:form>
@@ -15,8 +15,25 @@
 <f:section name="Preview">
 </f:section>
 <f:section name="Main">
-    <section class="aboutMe-section">
-        <h1>{header-location}</h1>
+    <section class="about_area section_gap">
+        <div class="container">
+            <div class="row justify-content-start align-items-center">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+					<div class="about_img">
+                        <f:image class=""src="{image}"alt="oussema harrabi profile image"/>
+					</div>
+				</div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+					<div class="main_title text-left">
+                        <div class="hp-text-block">                          
+                            <h2>{header-location}</h2>
+                            <f:format.html>{header-description}</f:format.html>
+                            <f:link.typolink parameter="{link}"class="primary_btn"target="_blank"><span>Download CV</span></f:link.typolink>
+                        </div>
+					</div>
+				</div>
+            </div>
+        </div>
     </section>
 </f:section>
 
