@@ -1,6 +1,7 @@
 {
     "name": "test/packages",
     "type": "typo3-cms-extension",
+    "version": "1.0",
     "description": "",
     "homepage": "https://www.oussemaharrabi.com",
     "license": ["GPL-2.0-or-later"],

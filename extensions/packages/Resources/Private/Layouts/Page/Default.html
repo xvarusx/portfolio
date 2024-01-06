@@ -1,9 +1,26 @@
+{namespace v=Tx_Fluid_ViewHelpers}
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3Fluid/Fluid/ViewHelpers"
     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
 
 <f:layout name="Default" />
-<f:render partial="Menu" arguments="{mainnavigation:mainnavigation}"/>
+<f:switch expression="{data.sys_language_uid}">
+    <f:case value="0">
+        <f:variable name="lang" value="EN" />
+    </f:case>
+    <f:case value="1">
+        <f:variable name="lang" value="DE" />
+    </f:case>
+    <f:case value="2">
+        <f:variable name="lang" value="FR" />
+    </f:case>
+    <f:defaultCase>
+        <!-- Default value if no case matches -->
+        <f:variable name="lang" value="EN" />
+    </f:defaultCase>
+</f:switch>
+
+<f:render partial="Menu" arguments="{mainnavigation:mainnavigation , lang : lang}"/>
 <f:render section="Main" />
 <f:render partial="Footer"/>
 

@@ -106,6 +106,9 @@ button:focus {
 .text-logo{
   float: left; 
 }
+.hide{
+  display: none;
+}
 .text-logo a{
   display: block;
   outline: 0;

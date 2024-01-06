@@ -13,45 +13,43 @@
 #### Language ####
 ##################
 
-lib.language = COA
-lib.language {
-    20 = HMENU
-    20 {
-        special = language
-        special.value = 0,1,2
-        special.normalWhenNoLanguage = 0
-        wrap = <select id="language_menu" class="language-menu" onchange="location = this.value;">|</select>
-        1 = TMENU
-        1 {
-            noBlur = 1
-            NO = 1
-            NO {
-                doNotLinkIt = 1
-                stdWrap.override = EN || FR || DE
-                stdWrap.typolink {
-                    parameter.data = page:uid
-                    additionalParams = &L=0 || &L=1 || &L=2
-                    ATagParams = hreflang="en-GB" ||  hreflang="fr-FR" ||  hreflang="de-DE"
-                    addQueryString = 1
-                    addQueryString.exclude = L,id,no_cache
-                    addQueryString.method = GET
-                    no_cache = 0
-                    wrap = <option value="{linkUrl}">{text}</option>
-                }
+lib.langMenu = HMENU
+lib.langMenu {
+    special = language
+    special.value = 0,1,2
+    1 = TMENU
+    1 {
+        NO = 1
+        NO {
+            linkWrap = <li>|</li>
+            doNotLinkIt = 1
+            stdWrap.override = en || de || fr
+            stdWrap.typolink {
+                parameter.data = page:uid
+                additionalParams = &L=0 || &L=1 || &L=2
+                addQueryString = 1
+                addQueryString.exclude = L,id
+
             }
-            ACT < .NO
-            ACT.wrapItemAndSub = <option value="{linkUrl}" selected="selected">|</option>
-            USERDEF1 < .NO
-            USERDEF1 {
-                wrap = <option value="{linkUrl}" disabled="disabled">{text}</option>
-                stdWrap.typolink >
-            }
-            USERDEF2 < .ACT
-            USERDEF2.wrapItemAndSub = <option value="{linkUrl}" disabled="disabled">|</option>
-            USERDEF2.stdWrap.typolink >
         }
+        // We are in the current language
+        ACT < .NO
+        ACT {
+            linkWrap = <li class="hide">|</li>
+        }
+        // No translation available
+        USERDEF1 < .NO
+        USERDEF1 {
+            linkWrap = <li>|</li>
+            stdWrap.typolink >
+        }
+
     }
 }
+
+lib.langVar = TEXT
+lib.langVar.value = {siteLanguage("languageId") == 0 ? "EN" : (siteLanguage("languageId") == 1 ? "DE" : "FR")}
+
 
 ##############
 #### PAGE ####
@@ -89,6 +87,10 @@ page {
                 }
             }
             ifEmpty = Default
+        }
+        variables  {
+            pageLanguage = TEXT
+            pageLanguage.data = TSFE:config|sys_language_uid
         }
         templateRootPaths {
             0 = EXT:packages/Resources/Private/Templates/Page/

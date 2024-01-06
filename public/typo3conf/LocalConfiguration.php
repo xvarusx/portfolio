@@ -13,7 +13,7 @@ return [
         'Connections' => [
             'Default' => [
                 'charset' => 'utf8mb4',
-                'dbname' => 'portfolio-dev',
+                'dbname' => 'portfolio',
                 'driver' => 'mysqli',
                 'host' => '127.0.0.1',
                 'password' => '',
