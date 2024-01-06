@@ -1,0 +1,21 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3Fluid/Fluid/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+    xmlns:bak="http://typo3.org/ns/Softtodo/Package/ViewHelpers">
+<f:layout name="Default" />
+<f:section name="Configuration">
+    <flux:form id="aboutMe" label="aboutMe" description="aboutMe">
+        <flux:field.input label="Header"name="header-location" maxCharacters="255" />
+        <flux:field.input label="SubHeader"name="Sub-header-location" maxCharacters="255" />
+        <flux:field.text label="Description"enableRichText="true" name="header-title" rows="5" cols="40" />
+        <flux:field.inline.fal label="Profile Picture"name="image" required="1" maxItems="1" minItems="1"/>
+        <flux:field type="input" name="link"label="download-Cv-Link"config="{renderType: 'inputLink'}" />
+    </flux:form>
+</f:section>
+<f:section name="Preview">
+</f:section>
+<f:section name="Main">
+    <h1>{header-location}</h1>
+</f:section>
+
+</html>
