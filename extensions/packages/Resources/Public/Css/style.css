@@ -2528,9 +2528,10 @@ h6 {
       margin-bottom: 20px; }
   .about_area .primary_btn {
     margin-top: 20px; }
-  .about_area .about_img {
-    position: relative;
-    right: 250px; }
+    .about_img img{
+      max-height: 542px;
+      max-width: 500px;
+    }
     @media (max-width: 1480px) {
       .about_area .about_img {
         right: 0; }
