@@ -8,8 +8,7 @@
         <flux:field.input label="Header"name="header-location" maxCharacters="255" />
         <flux:field.input label="SubHeader"name="Sub-header-location" maxCharacters="255" />
         <flux:field.text label="Description"enableRichText="true" name="header-description" rows="5" cols="40" />
-        <flux:field.inline.fal label="Profile Picture"name="image"required="1"minItems="1" maxItems="1" label="image" collapseAll="true"
-        allowedExtensions="jpg,png,jfif" />
+        <flux:field.file allowed="jpg,png,svg,gif"exclude="false"label="about Me image"name="image1"showThumbnails="1"useFalRelation="1"maxItems="1"minItems="1"/>
         <flux:field type="input" name="link"label="download-Cv-Link"config="{renderType: 'inputLink'}" />
     </flux:form>
 </f:section>
@@ -20,7 +19,7 @@
             <div class="row justify-content-start align-items-center">
                 <div class="col-sm-12 col-md-6 col-lg-6">
 					<div class="about_img">
-                        <f:image class=""src="{image}"alt="oussema harrabi profile image"/>
+                        <f:image class=""src="{image1}"alt="oussema harrabi profile image"/>
 					</div>
 				</div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
