@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6684b602464e2c5456fcb34c0293aacf",
+    "content-hash": "342108ffe50b68f729972dedd88a24cd",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5556,12 +5556,91 @@
             "time": "2023-11-03T14:41:28+00:00"
         },
         {
+            "name": "t3/dce",
+            "version": "2.9.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/a-r-m-i-n/dce.git",
+                "reference": "79dac299520b6d6532ec59d427257db65a2b1acf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/a-r-m-i-n/dce/zipball/79dac299520b6d6532ec59d427257db65a2b1acf",
+                "reference": "79dac299520b6d6532ec59d427257db65a2b1acf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-json": "*",
+                "php": ">=7.3",
+                "typo3/cms-core": "^9.5 || ^10.4 || ^11.0"
+            },
+            "replace": {
+                "arminvieweg/dce": "*"
+            },
+            "require-dev": {
+                "armin/editorconfig-cli": "^1.5",
+                "friendsofphp/php-cs-fixer": "^3.1",
+                "jangregor/phpstan-prophecy": "^0.8",
+                "phpstan/phpstan": "^0.12.98",
+                "saschaegerer/phpstan-typo3": "^0.13",
+                "t3/cms": "^10.4",
+                "typo3/cms-linkvalidator": "^10.4"
+            },
+            "suggest": {
+                "b13/container": "Brings clean container functionality to TYPO3 CMS, supported by DCE."
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "dce",
+                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                    "web-dir": ".Build/public",
+                    "app-dir": ".Build"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Classes/Compatibility.php"
+                ],
+                "psr-4": {
+                    "T3\\Dce\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Armin Vieweg",
+                    "email": "armin@v.ieweg.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Best FlexForm based content elements since 2012. With TCA mapping feature, simple backend view and much more features which makes it super easy to create own content element types.",
+            "homepage": "https://extensions.typo3.org/extension/dce/",
+            "keywords": [
+                "Dynamic Content Elements",
+                "TYPO3 CMS",
+                "content elements",
+                "dce"
+            ],
+            "support": {
+                "docs": "https://docs.typo3.org/typo3cms/extensions/dce/",
+                "forum": "https://www.facebook.com/TYPO3.DCE.Extension/",
+                "issues": "https://github.com/a-r-m-i-n/dce/issues",
+                "source": "https://github.com/a-r-m-i-n/dce"
+            },
+            "time": "2023-07-30T12:14:45+00:00"
+        },
+        {
             "name": "test/packages",
             "version": "1.0",
             "dist": {
                 "type": "path",
                 "url": "./extensions/packages",
-                "reference": "3ef3f4a9446ec425c21cf1f6fe5c1e0b1b35cf75"
+                "reference": "015649b94d28d3eb0beba1a0cae87bd98db10d8b"
             },
             "require": {
                 "typo3/cms-core": "^11.5",
@@ -7586,5 +7665,5 @@
     "platform-overrides": {
         "php": "8.0.0"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

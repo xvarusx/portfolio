@@ -33,7 +33,8 @@
                             </f:if>
                         </f:for>
                         <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{lang}</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{lang}<span><i class="fa fa-caret-down"style="margin-left:10px"></i></span></a>
+                            
                             <ul class="dropdown-menu">
                                     <li class="nav-item {f:if(condition: child.active, then:'active')}"><a class="nav-link" href="{child.link}" target="{child.target}" title="{child.title}">{child.title}</a></li>
                                     <f:cObject typoscriptObjectPath="lib.langMenu" data="{lang: '{TSFE:sys_language_uid}'}" />

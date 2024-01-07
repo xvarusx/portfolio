@@ -30,6 +30,7 @@
 		"helhum/typo3-console": "^7.0.2",
 		"in2code/powermail": "^10.7",
 		"mehrwert/phpmyadmin": "^6.1",
+		"t3/dce": "^2.9",
 		"test/packages": "^1.0",
 		"typo3/cms-backend": "^11.5.0",
 		"typo3/cms-belog": "^11.5.0",

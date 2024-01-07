@@ -5,10 +5,11 @@
 <f:layout name="Default" />
 <f:section name="Configuration">
     <flux:form id="Resume" label="Resume" description="Resume-Section">
-        <flux:field.input label="Header"name="header-location" maxCharacters="255" />
-        <flux:field.inline name="experiences" label="New Experience">
-            <flux:field.input label="SubHeader"name="Sub-header-location" maxCharacters="255" />
-        </flux:field.inline>
+        <flux:field.input label="Header"name="Header" maxCharacters="255" />
+        <flux:form.container name="settings.name" label="Name">
+            <flux:field.input name="firstname" label="First name"/>
+            <flux:field.input name="lastname" label="Last name"/>
+        </flux:form.container>
     </flux:form>
 </f:section>
 <f:section name="Preview">
