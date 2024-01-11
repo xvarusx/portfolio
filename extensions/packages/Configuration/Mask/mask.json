@@ -1,0 +1,204 @@
+{
+    "version": "8.1.0",
+    "restructuringDone": false,
+    "tables": {
+        "tt_content": {
+            "elements": {
+                "experiences": {
+                    "color": "#000000",
+                    "colorOverlay": "#000000",
+                    "columns": [
+                        "tx_mask_header",
+                        "tx_mask_job_title",
+                        "tx_mask_company",
+                        "tx_mask_job_description",
+                        "tx_mask_start_date",
+                        "tx_mask_end_date",
+                        "tx_mask_now",
+                        "tx_mask_add_experience"
+                    ],
+                    "description": "",
+                    "descriptions": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "icon": "",
+                    "iconOverlay": "",
+                    "key": "experiences",
+                    "label": "Experiences",
+                    "labels": [
+                        "Header",
+                        "Job Title",
+                        "Company Name",
+                        "Job Description",
+                        "Start Date",
+                        "End Date",
+                        "Still working there ?",
+                        "Add Experience"
+                    ],
+                    "shortLabel": "",
+                    "sorting": 0
+                }
+            },
+            "sql": {
+                "tx_mask_add_experience": {
+                    "tt_content": {
+                        "tx_mask_add_experience": "int(11) unsigned DEFAULT '0' NOT NULL"
+                    }
+                },
+                "tx_mask_company": {
+                    "tt_content": {
+                        "tx_mask_company": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_end_date": {
+                    "tt_content": {
+                        "tx_mask_end_date": "date"
+                    }
+                },
+                "tx_mask_header": {
+                    "tt_content": {
+                        "tx_mask_header": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_job_description": {
+                    "tt_content": {
+                        "tx_mask_job_description": "mediumtext"
+                    }
+                },
+                "tx_mask_job_title": {
+                    "tt_content": {
+                        "tx_mask_job_title": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_now": {
+                    "tt_content": {
+                        "tx_mask_now": "int(11) DEFAULT '0' NOT NULL"
+                    }
+                },
+                "tx_mask_start_date": {
+                    "tt_content": {
+                        "tx_mask_start_date": "date"
+                    }
+                }
+            },
+            "tca": {
+                "tx_mask_add_experience": {
+                    "cTypes": [
+                        "mask_experiences"
+                    ],
+                    "config": {
+                        "appearance": {
+                            "enabledControls": {
+                                "delete": 1,
+                                "dragdrop": 1,
+                                "hide": 1,
+                                "info": 1,
+                                "localize": 1,
+                                "new": 1,
+                                "sort": 1
+                            },
+                            "levelLinksPosition": "top",
+                            "showAllLocalizationLink": 1,
+                            "showNewRecordLink": 1,
+                            "showPossibleLocalizationRecords": 1,
+                            "useSortable": 1
+                        },
+                        "foreign_sortby": "sorting",
+                        "foreign_table": "tt_content",
+                        "overrideChildTca": {
+                            "columns": {
+                                "colPos": {
+                                    "config": {
+                                        "default": 999
+                                    }
+                                }
+                            }
+                        },
+                        "type": "inline"
+                    },
+                    "fullKey": "tx_mask_add_experience",
+                    "key": "add_experience",
+                    "type": "content"
+                },
+                "tx_mask_company": {
+                    "config": {
+                        "eval": "required",
+                        "placeholder": "write ur company Name",
+                        "size": "50",
+                        "type": "input"
+                    },
+                    "fullKey": "tx_mask_company",
+                    "key": "company",
+                    "type": "string"
+                },
+                "tx_mask_end_date": {
+                    "config": {
+                        "dbType": "date",
+                        "eval": "date",
+                        "renderType": "inputDateTime",
+                        "type": "input"
+                    },
+                    "fullKey": "tx_mask_end_date",
+                    "key": "end_date",
+                    "type": "date"
+                },
+                "tx_mask_header": {
+                    "config": {
+                        "type": "input"
+                    },
+                    "fullKey": "tx_mask_header",
+                    "key": "header",
+                    "type": "string"
+                },
+                "tx_mask_job_description": {
+                    "config": {
+                        "enableRichtext": 1,
+                        "eval": "required",
+                        "type": "text"
+                    },
+                    "fullKey": "tx_mask_job_description",
+                    "key": "job_description",
+                    "type": "richtext"
+                },
+                "tx_mask_job_title": {
+                    "config": {
+                        "eval": "required",
+                        "placeholder": "write ur job Title",
+                        "size": "50",
+                        "type": "input"
+                    },
+                    "fullKey": "tx_mask_job_title",
+                    "key": "job_title",
+                    "type": "string"
+                },
+                "tx_mask_now": {
+                    "config": {
+                        "items": [],
+                        "type": "check"
+                    },
+                    "fullKey": "tx_mask_now",
+                    "key": "now",
+                    "type": "check"
+                },
+                "tx_mask_start_date": {
+                    "config": {
+                        "dbType": "date",
+                        "eval": "required,date",
+                        "renderType": "inputDateTime",
+                        "type": "input"
+                    },
+                    "fullKey": "tx_mask_start_date",
+                    "key": "start_date",
+                    "type": "date"
+                }
+            }
+        }
+    }
+}

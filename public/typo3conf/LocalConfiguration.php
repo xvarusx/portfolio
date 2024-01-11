@@ -1,7 +1,7 @@
 <?php
 return [
     'BE' => [
-        'debug' => false,
+        'debug' => true,
         'explicitADmode' => 'explicitAllow',
         'installToolPassword' => '$argon2i$v=19$m=65536,t=16,p=1$Z1FIWTV4SE9qRVFsYVVoVQ$ntEYvnxi7h/OjccroAcFEn9P2AKWUBHSKT7mPqfcS3s',
         'passwordHashing' => [
@@ -55,6 +55,30 @@ return [
             'plugAndPlay' => '0',
             'plugAndPlayDirectory' => 'design',
         ],
+        'gridelements' => [
+            'additionalStylesheet' => '',
+            'disableAutomaticUnusedColumnCorrection' => '0',
+            'disableCopyFromPageButton' => '0',
+            'disableDragInWizard' => '0',
+            'fluidBasedPageModule' => '0',
+            'nestingInListModule' => '0',
+            'overlayShortcutTranslation' => '0',
+        ],
+        'mask' => [
+            'backend' => 'EXT:packages/Resources/Private/Mask/Backend/Templates',
+            'backend_layouts_folder' => '',
+            'backendlayout_pids' => '0',
+            'content' => 'EXT:packages/Resources/Private/Mask/Frontend/Templates',
+            'content_elements_folder' => '',
+            'json' => 'EXT:packages/Configuration/Mask/mask.json',
+            'layouts' => 'EXT:packages/Resources/Private/Mask/Frontend/Layouts',
+            'layouts_backend' => 'EXT:packages/Resources/Private/Mask/Backend/Layouts',
+            'loader_identifier' => 'json',
+            'override_shared_fields' => '0',
+            'partials' => 'EXT:packages/Resources/Private/Mask/Frontend/Partials',
+            'partials_backend' => 'EXT:packages/Resources/Private/Mask/Backend/Partials',
+            'preview' => 'EXT:packages/Resources/Public/Mask/',
+        ],
         'news' => [
             'advancedMediaPreview' => '1',
             'archiveDate' => 'date',
@@ -71,12 +95,6 @@ return [
             'slugBehaviour' => 'unique',
             'storageUidImporter' => '1',
             'tagPid' => '1',
-        ],
-        'phpmyadmin' => [
-            'allowedIps' => '',
-            'hideOtherDBs' => '1',
-            'uploadDir' => 'uploads/tx_phpmyadmin',
-            'useDevIpMask' => '0',
         ],
         'powermail' => [
             'disableBackendModule' => '0',
@@ -95,12 +113,21 @@ return [
         'cacheHash' => [
             'enforceValidation' => true,
         ],
-        'debug' => false,
+        'debug' => true,
         'disableNoCacheParameter' => true,
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
             'options' => [],
         ],
+    ],
+    'GFX' => [
+        'processor' => 'ImageMagick',
+        'processor_allowTemporaryMasksAsPng' => '0',
+        'processor_colorspace' => 'RGB',
+        'processor_effects' => false,
+        'processor_enabled' => '1',
+        'processor_path' => '/usr/bin/',
+        'processor_path_lzw' => '/usr/bin/',
     ],
     'LOG' => [
         'TYPO3' => [
@@ -109,7 +136,7 @@ return [
                     'writerConfiguration' => [
                         'notice' => [
                             'TYPO3\CMS\Core\Log\Writer\FileWriter' => [
-                                'disabled' => true,
+                                'disabled' => false,
                             ],
                         ],
                     ],
@@ -118,12 +145,12 @@ return [
         ],
     ],
     'MAIL' => [
-        'transport' => 'sendmail',
-        'transport_sendmail_command' => 'C:/laragon/bin/sendmail/sendmail.exe',
-        'transport_smtp_encrypt' => '',
-        'transport_smtp_password' => '',
-        'transport_smtp_server' => '',
-        'transport_smtp_username' => '',
+        'transport' => 'smtp',
+        'transport_sendmail_command' => '',
+        'transport_smtp_encrypt' => true,
+        'transport_smtp_password' => 'fseg-sfax2016',
+        'transport_smtp_server' => 'smtp-mail.outlook.com:587',
+        'transport_smtp_username' => 'oussema.harrabi.pro@hotmail.com',
     ],
     'SYS' => [
         'caching' => [
@@ -157,10 +184,10 @@ return [
                 ],
             ],
         ],
-        'devIPmask' => '',
-        'displayErrors' => 0,
+        'devIPmask' => '*',
+        'displayErrors' => 1,
         'encryptionKey' => 'bcb679537ce279ebd811a1196ed02e9dfd73f0d1347c23148b6b11cc0c11a64307a74bc43d3ba607df42269622cbe95a',
-        'exceptionalErrors' => 4096,
+        'exceptionalErrors' => 12290,
         'features' => [
             'yamlImportsFollowDeclarationOrder' => true,
         ],

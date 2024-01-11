@@ -1,0 +1,61 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3Fluid/Fluid/ViewHelpers"
+    xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+    xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+    xmlns:bak="http://typo3.org/ns/Softtodo/Package/ViewHelpers">
+<f:layout name="Default" />
+<f:section name="Configuration">
+    <flux:form id="contactMe" label="Contact Me" description="contact me ">
+        <flux:form.option.group value="common"/>
+        <flux:form.sheet name="contactMeSheet" label="contactMeSheet">
+            <flux:field.input name="header" label="header"/>
+            <flux:field.input name="sub-header" label="subHeader"/>
+            <flux:form.section name="contactMe" label="Contact Me">
+                <flux:form.object name="contact" label="contact">
+                    <flux:field.input name="label" label="contact label" maxCharacters="50"/>
+                    <flux:field.input name="contactValue" label="contact value" maxCharacters="50"/>
+                    <flux:field.select name="contactType" label="contact type" default="''" items="{'email': 'mailto:','phone': 'tel://',url:''}" />
+                    <flux:field.file allowed="svg"exclude="false"label="icon"name="icon"showThumbnails="1"useFalRelation="1"maxItems="1"minItems="1"/>
+                </flux:form.object>
+            </flux:form.section>
+        </flux:form.sheet>
+    </flux:form>
+</f:section>
+<f:section name="Preview">
+    <div class="preview">
+        <h2>{header}</h2>
+        <h2>{sub-header}</h2>
+    </div>
+</f:section>
+<f:section name="Main">
+<div class="container">
+    <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-7 heading-section text-center ">
+          <h1 class="big big-2">{header}</h1>
+          <p>{sub-header}</p>
+        </div>
+    </div>
+    <div class="row d-flex contact-info mb-5">
+        <f:for each="{contactMe}" as="key"iteration="value">
+            <f:for each="{key}" as="contact">
+                <div class="col-md-6 col-lg-3 d-flex ">
+                    <div class="align-self-stretch box text-center p-4 shadow">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="icon-map-signs"><f:image src="{contact.icon}" alt="{contact.label} icon" /></span>
+                        </div>
+                        <div>
+                            <h3 class="mb-4">{contact.label}</h3>
+                            <f:switch expression="{contact.contactType}">
+                                <f:case value="email"><p><a class ="contact_details"href="mailto:{contact.contactValue}">{contact.contactValue}</a></p></f:case>
+                                <f:case value="phone"><p>{contact.contactValue}</p></f:case>
+                                <f:case value="url"><p><f:link.typolink class ="contact_details"parameter="{contact.contactValue}"target="_blank">{contact.contactValue}</f:link.typolink></p></f:case>
+                                <f:defaultCase><p>{contact.contactValue}</p></f:defaultCase>
+                            </f:switch>
+                        </div>
+                    </div>
+                </div>
+            </f:for>
+        </f:for>
+    </div>
+</div>
+</f:section>
+</html>

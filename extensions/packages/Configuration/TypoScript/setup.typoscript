@@ -8,6 +8,7 @@
 #### HELPER ####
 ################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:packages/Configuration/TypoScript/Helper/DynamicContent.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:packages/Configuration/TypoScript/2cols.typoscript">
 
 ##################
 #### Language ####
@@ -270,4 +271,13 @@ config {
     compressCss = 0
     concatenateJs = 0
     concatenateCss = 0
+}
+// use default/general ContainerProcessor
+tt_content.b13-2cols-with-header-container < lib.contentElement
+tt_content.b13-2cols-with-header-container {
+  templateName = 2ColsWithHeader
+  templateRootPaths.10 = EXT:packages/Resources/Private/Templates/Content
+  dataProcessing {
+    200 = B13\Container\DataProcessing\ContainerProcessor
+  }
 }

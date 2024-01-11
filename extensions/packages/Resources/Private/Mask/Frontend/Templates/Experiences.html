@@ -1,0 +1,81 @@
+<f:if condition="{data.tx_mask_plus_experience}">
+    <ul>
+        <f:for each="{data.tx_mask_plus_experience}" as="data_item">
+            <li>
+            </li>
+        </f:for>
+    </ul>
+</f:if>
+<f:if condition="{data.tx_mask_add_experience}">
+    <f:for each="{data.tx_mask_add_experience}" as="data_item">
+        <f:cObject typoscriptObjectPath="lib.tx_mask.content">{data_item.uid}</f:cObject>
+    </f:for>
+</f:if>
+                <div class="timeline-wrapper">
+                     <div class="timeline-yr">
+                          <span>
+                            <f:if condition="{data.tx_mask_start_date}">
+                                {data.tx_mask_start_date -> f:format.date(format: 'Y')}
+                            </f:if>
+                          </span>
+                     </div>
+                     <div class="timeline-info">
+                        <h3>
+                            <span>
+                                <f:if condition="{data.tx_mask_job_title}">
+                                    {data.tx_mask_job_title}
+                                </f:if>
+                            </span>
+                            <small>
+                                <f:if condition="{data.tx_mask_company}">
+                                    {data.tx_mask_company}
+                                </f:if>
+                            </small>
+                        </h3>
+                        <f:if condition="{data.tx_mask_job_description}">
+                            {data.tx_mask_job_description -> f:format.html()}
+                        </f:if>
+                     </div>
+                </div>
+
+<f:comment>
+<f:if condition="{data.tx_mask_end_date}">
+    {data.tx_mask_end_date -> f:format.date(format: 'd.m.Y')}
+</f:if>
+        <div class="col-lg-6 col-12">
+          <h2 class="mb-4 mobile-mt-2">Educations</h2>
+
+            <div class="timeline">
+                <div class="timeline-wrapper">
+                     <div class="timeline-yr">
+                          <span>2017</span>
+                     </div>
+                     <div class="timeline-info">
+                          <h3><span>Mobile Web</span><small>Master Design</small></h3>
+                          <p>Please tell your friends about Tooplate website. That would be very helpful. We need your support.</p>
+                     </div>
+                </div>
+
+                <div class="timeline-wrapper">
+                    <div class="timeline-yr">
+                        <span>2015</span>
+                    </div>
+                    <div class="timeline-info">
+                        <h3><span>User Interfaces</span><small>Creative Agency</small></h3>
+                        <p><a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a> is a great website to download HTML templates without any login or email.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-wrapper">
+                    <div class="timeline-yr">
+                        <span>2013</span>
+                    </div>
+                    <div class="timeline-info">
+                        <h3><span>Artwork Design</span><small>New Art School</small></h3>
+                        <p>You can freely use Tooplate's templates for your business or personal sites. You cannot redistribute this template without a permission.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</f:comment>

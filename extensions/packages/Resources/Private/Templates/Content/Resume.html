@@ -5,103 +5,65 @@
 <f:layout name="Default" />
 <f:section name="Configuration">
     <flux:form id="Resume" label="Resume" description="Resume-Section">
-        <flux:field.input label="Header"name="Header" maxCharacters="255" />
-        <flux:form.container name="settings.name" label="Name">
-            <flux:field.input name="firstname" label="First name"/>
-            <flux:field.input name="lastname" label="Last name"/>
-        </flux:form.container>
+        <flux:form.option.group value="common"/>
+        <flux:form.sheet name="experienceSheet" label="experienceSheet">
+            <flux:field.input name="headline" label="Headline"/>
+            <flux:field.select name="headlineStyle" label="Headline style" default="h2" items="{'h2': 'H2','h3': 'H3'}" />
+            <flux:form.section name="experiencesSection" label="Experiences">
+                <flux:form.object name="experience" label="Experience">
+                    <flux:field.input name="jobTitle" label="Job Title" maxCharacters="50"/>
+                    <flux:field.input name="companyName" label="Company Name" maxCharacters="50"/>
+                    <flux:field.text label="Job Description"enableRichText="true" name="jobDescription" rows="5" cols="40" />
+                    <flux:field.input name="startDate" label="Start Date"  config="{eval: 'date', renderType: 'inputDateTime'}" />
+                    <flux:field.checkbox name="stillWorkin" label="still workin there ?" />
+                    <flux:field.input name="endDate" label="End Date"  config="{eval: 'date', renderType: 'inputDateTime'}" displayCond="{Resume.stillWorkin}" />
+                </flux:form.object>
+            </flux:form.section>
+        </flux:form.sheet>
     </flux:form>
 </f:section>
 <f:section name="Preview">
+    <div class="preview">
+        <h2>{headline}</h2>
+        <f:format.html>{header-description}</f:format.html>
+    </div>
 </f:section>
 <f:section name="Main">
     <div class="container">
         <div class="row">
-
             <div class="col-lg-6 col-12">
-              <h2 class="mb-4">Experiences</h2>
-
-                <div class="timeline">
-                    <div class="timeline-wrapper">
-                         <div class="timeline-yr">
-                              <span>2019</span>
-                         </div>
-                         <div class="timeline-info">
-                              <h3><span>Project Manager</span><small>Best Studio</small></h3>
-                              <p>Proin ornare non purus ut rutrum. Nulla facilisi. Aliquam laoreet libero ac pharetra feugiat. Cras ac fermentum nunc, a faucibus nunc.</p>
-                         </div>
-                    </div>
-
-                    <div class="timeline-wrapper">
-                        <div class="timeline-yr">
-                            <span>2018</span>
+              <h2 class="mb-4">{headline}</h2>
+                <f:for each="{experiencesSection}" as="key"iteration="value">
+                    <f:for each="{key}" as="section">
+                        <div class="timeline-wrapper">
+                            <div class="timeline-yr">
+                                <span>
+                                    <f:if condition="{section.startDate}">
+                                        {section.startDate -> f:format.date(format: 'Y')}
+                                    </f:if>
+                                </span>
+                            </div>
+                            <div class="timeline-info">
+                                <h3>
+                                    <span>
+                                        <f:if condition="{section.jobTitle}">
+                                            {section.jobTitle}
+                                        </f:if>
+                                    </span>
+                                    <small>
+                                        <f:if condition="{section.companyName}">
+                                            {section.companyName}
+                                        </f:if>
+                                    </small>
+                                </h3>
+                            <f:if condition="{section.jobDescription}">
+                                {section.jobDescription -> f:format.html()}
+                            </f:if>
+                            </div>
                         </div>
-                        <div class="timeline-info">
-                            <h3><span>UX Designer</span><small>Digital Ace</small></h3>
-                            <p>Fusce rutrum augue id orci rhoncus molestie. Nunc auctor dignissim lacus vel iaculis.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-wrapper">
-                        <div class="timeline-yr">
-                            <span>2016</span>
-                        </div>
-                        <div class="timeline-info">
-                            <h3><span>UI Freelancer</span></h3>
-                            <p>Sed fringilla vitae enim sit amet cursus. Sed cursus dictum tortor quis pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-wrapper">
-                        <div class="timeline-yr">
-                            <span>2014</span>
-                        </div>
-                        <div class="timeline-info">
-                            <h3><span>Junior Designer<small>Crafted Co.</small></span></h3>
-                            <p>Cras scelerisque scelerisque condimentum. Nullam at volutpat mi. Nunc auctor ipsum eget magna consequat viverra.</p>
-                        </div>
-                    </div>
-
-                </div>
+                    </f:for>
+                </f:for>
             </div>
-
-            <div class="col-lg-6 col-12">
-              <h2 class="mb-4 mobile-mt-2">Educations</h2>
-
-                <div class="timeline">
-                    <div class="timeline-wrapper">
-                         <div class="timeline-yr">
-                              <span>2017</span>
-                         </div>
-                         <div class="timeline-info">
-                              <h3><span>Mobile Web</span><small>Master Design</small></h3>
-                              <p>Please tell your friends about Tooplate website. That would be very helpful. We need your support.</p>
-                         </div>
-                    </div>
-
-                    <div class="timeline-wrapper">
-                        <div class="timeline-yr">
-                            <span>2015</span>
-                        </div>
-                        <div class="timeline-info">
-                            <h3><span>User Interfaces</span><small>Creative Agency</small></h3>
-                            <p><a rel="nofollow" href="https://www.facebook.com/tooplate">Tooplate</a> is a great website to download HTML templates without any login or email.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-wrapper">
-                        <div class="timeline-yr">
-                            <span>2013</span>
-                        </div>
-                        <div class="timeline-info">
-                            <h3><span>Artwork Design</span><small>New Art School</small></h3>
-                            <p>You can freely use Tooplate's templates for your business or personal sites. You cannot redistribute this template without a permission.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            
         </div>
     </div>
 </f:section>

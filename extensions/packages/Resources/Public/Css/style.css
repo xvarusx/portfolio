@@ -1289,7 +1289,12 @@ button:focus {
       height: 134px; }
 .contact_form .primary_btn {
   margin-top: 20px; }
-
+  @media (max-width: 991.98px){
+  .contact_area .img {
+      height: 400px;
+      width: 100%;
+  }
+}
 /* Contact Success and error Area css
 ============================================================================================ */
 .modal-message .modal-dialog {
@@ -2550,7 +2555,79 @@ h6 {
           padding: 100px 0;
         }
       }
+
 /* End About Us Area css
+============================================================================================
+start resume area    
+===========================================================================================*/
+.timeline-wrapper {
+  position: relative;
+  padding: 22px 0;
+}
+.timeline-wrapper:before {
+  content: "";
+  background: #474559;
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 38px;
+}
+.timeline-wrapper:last-child:before {
+  height: 0;
+}
+.timeline-yr {
+  background: #474559;
+  border-radius: 100%;
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  text-align: center;
+}
+.timeline-yr span {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  line-height: 75px;
+  text-align: center;
+}
+.timeline-info {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 432px;
+  margin-left: 6em;
+}
+.timeline-info h3{
+  font-weight: bold;
+  color: #484848;
+  letter-spacing: -1px;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+.timeline-info small {
+  color: #474559;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 15px;
+}
+.timeline-info p{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #5b5b5b;
+}
+@media (max-width: 580px){
+  .timeline-info small {
+    display: block;
+    margin: 10px 0 0 0;
+  }
+}
+
+/*
 ============================================================================================ */
 /* Start Barand Area css
 ============================================================================================ */
@@ -2559,7 +2636,7 @@ h6 {
   @media (max-width: 1199px) {
     .brand_area {
       padding-bottom: 80px; }
-
+    }
 /* End Barand Area css
 ============================================================================================ */
 /* Start Features Area css
@@ -2970,9 +3047,9 @@ h6 {
   ============================================================================================ */
   .header_area .navbar .search {
     margin-left: 40px; }
-
+  }
   /* End Main Menu Area css
-  ============================================================================================ */ }
+  ============================================================================================ */ 
 @media (max-width: 1199px) {
   /* Main Menu Area css
   ============================================================================================ */
@@ -3133,6 +3210,25 @@ h6 {
   .contact_info {
     margin-bottom: 50px; }
 
+    .contact_area .box {
+      width: 100%;
+      display: block;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      border-radius: 4px;
+  }
+
+    @media (max-width: 991.98px){
+      .contact_area .box {
+          margin-bottom: 30px;
+      }
+    }
+  .contact_area .box h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
   /* End Contact page Area css
   ============================================================================================ */
   .home_banner_area .donation_inner {
@@ -3169,7 +3265,8 @@ h6 {
     margin: 0px auto 30px; }
 
   .price_inner {
-    margin-bottom: -30px; } }
+    margin-bottom: -30px; }
+   }
 @media (max-width: 767px) {
   .home_banner_area {
     min-height: 300px; }
@@ -3335,12 +3432,47 @@ h6 {
   .testi_item .media {
     display: block; } }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
+
   /* Start Brand Carousel Area css
   ============================================================================================ */
   .brand-carousel .single-brand-item {
     height: 100px;
     width: 140px; } }
 /*---------------------------------------------------- */
+
+  /***contact are ****/
+  .contact_area .contact_details {
+    word-break: break-all;
+  }
+  .contact_area .box .icon img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.contact_area .icon{
+  margin: 3rem;
+}
+.btn.btn-primary {
+  background: #4458dc;
+  border: 1px solid #4458dc !important;
+  color: #fff !important;
+}
+.btn {
+  cursor: pointer;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  border-radius: 40px;
+  -webkit-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+  /***end contact are *****/
 /*----------------------------------------------------*/
 /* Footer Area css
 ============================================================================================ */
